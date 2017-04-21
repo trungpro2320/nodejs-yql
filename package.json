@@ -2,7 +2,6 @@
   "name": "apiai-webhook-sample",
   "version": "1.0.0",
   "description": "Webhook sample",
-  "main": "index.js",
   "private": true,
   "scripts": {
     "lint": "semistandard --fix \"**/*.js\"",
