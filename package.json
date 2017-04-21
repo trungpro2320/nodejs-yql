@@ -1,54 +1,21 @@
 {
-  "name": "apiai-webhook-sample",
-  "version": "1.0.0",
-  "description": "Webhook sample",
+  "name": "your-action-app",
+  "description": "This is your Action's webhook",
+  "version": "0.0.1",
   "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "engines": {
+    "node": "~6.0"
+  },
   "scripts": {
     "lint": "semistandard --fix \"**/*.js\"",
     "start": "functions deploy agent --trigger-http",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test1": "istanbul cover _mocha -- -R spec tests/index.js",
-    "docs": "yuidoc --outdir docs ./",
-    "deploy": "gcloud beta functions deploy agent --trigger-http --stage-bucket nodejs-yql",
-    "clean": "rm -rf docs coverage"
-  },
-  "author": "Trung-DAT",
-  "license": "Apache 2.0",
-  "engines": {
-    "node": ">=0.8",
-    "npm": "1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/derek/node-yql.git"
-  },
-  "bugs": {
-    "mail": "drgath@gmail.com",
-    "url": "https://github.com/derek/node-yql/issues"
+    "deploy": "gcloud beta functions deploy agent --trigger-http --stage-bucket nodejs-yql"
   },
   "dependencies": {
-    "request": "~2.34.0",
-    "underscore": "~1.6.0",
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
     "actions-on-google": "^1.0.0"
   },
   "devDependencies": {
-    "expect.js": "~0.3.1",
-    "istanbul": "~0.3.0",
-    "mocha-istanbul": "~0.2.0",
-    "mocha": "~1.21.3",
-    "sinon": "~1.10.3",
-    "yuidocjs": "~0.3.50",
-     "semistandard": "^9.1.0"
-  },
-  "contributors": [
-    "Michael Matuzak <matuzak@yahoo-inc.com>",
-    "Andreas Madsen <amwebdk+github@gmail.com>"
-  ],
-  "keywords": [
-    "yql"
-  ]
-}
-
-
+    "semistandard": "^9.1.0"
+  }
