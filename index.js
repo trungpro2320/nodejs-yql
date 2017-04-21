@@ -27,7 +27,7 @@ function whatTimeIsIt(assistant) {
     assistant.ask("It’s way to early or way too late in " + city);
 }
 // [START YourAction]
-exports.yourAction = (req, res) => {
+exports.yourAction = (request, response) => {
   var assistant = new Assistant({request: request, response: response});
   console.log('Request headers: ' + JSON.stringify(request.headers));
   console.log('Request body: ' + JSON.stringify(response.body));
