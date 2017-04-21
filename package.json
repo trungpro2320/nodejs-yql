@@ -1,5 +1,5 @@
 {
-  "name": "your-action-app",
+  "name": "ask-for-the-time",
   "description": "This is your Action's webhook",
   "version": "0.0.1",
   "private": true,
@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "semistandard --fix \"**/*.js\"",
     "start": "functions deploy yourAction --trigger-http",
-    "deploy": "gcloud beta functions deploy yourAction --trigger-http --stage-bucket nodejs-yql"
+    "deploy": "gcloud beta functions deploy yourAction --trigger-http --stage-bucket <storage_bucket_name>"
   },
   "dependencies": {
     "actions-on-google": "^1.0.0"
