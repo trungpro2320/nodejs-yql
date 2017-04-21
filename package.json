@@ -12,10 +12,6 @@
   },
   "author": "Danil Skachkov <danil.skachkov@speaktoit.com> (https://api.ai)",
   "license": "Apache 2.0",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4"
-  },
   "engines": {
     "node": ">=0.8",
     "npm": "1"
@@ -30,7 +26,9 @@
   },
   "dependencies": {
     "request": "~2.34.0",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
