@@ -20,18 +20,18 @@ const CITY = 'geo-city';
 
 // [START YourAction]
 exports.yourAction = (req, res) => {
-  var assistant = new Assistant({request: req, response: res});
+  const assistant = new Assistant({request: req, response: res});
   console.log('Request headers: ' + JSON.stringify(req.headers));
   console.log('Request body: ' + JSON.stringify(res.body));
   
   function whatTimeIsIt(assistant) {
-  var city = assistant.getArgument(CITY);
-  if (city === 'Paris') 
-    assistant.ask("It's noon in Paris.");
-  else if (city === 'London') 
-    assistant.ask("It's 11 a.m. in London.");
-  else 
-    assistant.ask("It’s way to early or way too late in " + city);
+    let city = assistant.getArgument(CITY);
+    if (city === 'Paris') 
+      assistant.ask("It's noon in Paris.");
+    else if (city === 'London') 
+      assistant.ask("It's 11 a.m. in London.");
+    else 
+      assistant.ask("It’s way to early or way too late in " + city);
   }
   
   let actionMap = new Map();
