@@ -27,10 +27,10 @@ function whatTimeIsIt(assistant) {
     assistant.ask("It’s way to early or way too late in " + city);
 }
 // [START YourAction]
-exports.yourAction = (request, response) => {
-  var assistant = new Assistant({request: request, response: response});
-  console.log('Request headers: ' + JSON.stringify(request.headers));
-  console.log('Request body: ' + JSON.stringify(response.body));
+exports.yourAction = (req, res) => {
+  var assistant = new Assistant({request: req, response: res});
+  console.log('Request headers: ' + JSON.stringify(req.headers));
+  console.log('Request body: ' + JSON.stringify(res.body));
   var actionMap = new Map();
   actionMap.set(ASK_TIME_INTENT, whatTimeIsIt(assistant));
   assistant.handleRequest(actionMap);
