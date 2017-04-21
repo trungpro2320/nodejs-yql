@@ -29,6 +29,8 @@ function whatTimeIsIt(assistant) {
 // [START YourAction]
 exports.yourAction = (req, res) => {
   var assistant = new Assistant({request: request, response: response});
+  console.log('Request headers: ' + JSON.stringify(request.headers));
+  console.log('Request body: ' + JSON.stringify(response.body));
   var actionMap = new Map();
   actionMap.set(ASK_TIME_INTENT, whatTimeIsIt(assistant));
   assistant.handleRequest(actionMap);
