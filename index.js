@@ -16,7 +16,7 @@
 process.env.DEBUG = 'actions-on-google:*';
 const Assistant = require('actions-on-google').ApiAiAssistant;
 const ASK_TIME_INTENT = 'ask-for-the-time';  
-const CITY = '$geo-city';
+const CITY = 'geo-city';
 function whatTimeIsIt(assistant) {
   var city = assistant.getArgument(CITY);
   if (city === 'Paris') 
