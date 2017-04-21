@@ -20,7 +20,6 @@
     "node": ">=0.8",
     "npm": "1"
   },
-  "main": "./yql.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/derek/node-yql.git"
