@@ -1,55 +1,22 @@
 'use strict';
 
-const express = require('express');
-const bodyParser = require('body-parser');
+process.env.DEBUG = 'actions-on-google:*';
+const Assistant = require('actions-on-google').ApiAiAssistant;
 
+// [START YourAction]
+exports.yourAction = (req, res) => {
+  const assistant = new Assistant({request: req, response: res});
+  console.log('Request headers: ' + JSON.stringify(req.headers));
+  console.log('Request body: ' + JSON.stringify(req.body));
 
-const restService = express();
-restService.use(bodyParser.json());
+  // Fulfill action business logic
+  function responseHandler (assistant) {
+    // Complete your fulfillment logic and send a response
+    assistant.tell('Hello, World!');
+  }
 
-restService.post('/hook', function (req, res) {
+  const actionMap = new Map();
+  actionMap.set('<API.AI_action_name>', responseHandler);
 
-    console.log('hook request');
-
-    try {
-        var speech = 'empty speech';
-
-        if (req.body) {
-            var requestBody = req.body;
-
-            if (requestBody.result) {
-                speech = '';
-
-                if (requestBody.result.fulfillment) {
-                    speech += requestBody.result.fulfillment.speech;
-                    speech += ' ';
-                }
-
-                if (requestBody.result.action) {
-                    speech += 'action: ' + requestBody.result.action;
-                }
-            }
-        }
-
-        console.log('result: ', speech);
-
-        return res.json({
-            speech: speech,
-            displayText: speech,
-            source: 'apiai-webhook-sample'
-        });
-    } catch (err) {
-        console.error("Can't process request", err);
-
-        return res.status(400).json({
-            status: {
-                code: 400,
-                errorType: err.message
-            }
-        });
-    }
-});
-
-restService.listen((process.env.PORT || 5000), function () {
-    console.log("Server listening");
-});
+  assistant.handleRequest(actionMap);
+};
