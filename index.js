@@ -17,7 +17,14 @@ process.env.DEBUG = 'actions-on-google:*';
 const Assistant = require('actions-on-google').ApiAiAssistant;
 const ASK_TIME_INTENT = 'ask-for-the-time';  
 const CITY = 'geo-city';
-function whatTimeIsIt(assistant) {
+
+// [START YourAction]
+exports.yourAction = (req, res) => {
+  var assistant = new Assistant({request: req, response: res});
+  console.log('Request headers: ' + JSON.stringify(req.headers));
+  console.log('Request body: ' + JSON.stringify(res.body));
+  
+  function whatTimeIsIt(assistant) {
   var city = assistant.getArgument(CITY);
   if (city === 'Paris') 
     assistant.ask("It's noon in Paris.");
@@ -25,14 +32,10 @@ function whatTimeIsIt(assistant) {
     assistant.ask("It's 11 a.m. in London.");
   else 
     assistant.ask("It’s way to early or way too late in " + city);
-}
-// [START YourAction]
-exports.yourAction = (req, res) => {
-  var assistant = new Assistant({request: req, response: res});
-  console.log('Request headers: ' + JSON.stringify(req.headers));
-  console.log('Request body: ' + JSON.stringify(res.body));
-  var actionMap = new Map();
-  actionMap.set(ASK_TIME_INTENT, whatTimeIsIt(assistant));
+  }
+  
+  let actionMap = new Map();
+  actionMap.set(ASK_TIME_INTENT, whatTimeIsIt);
   assistant.handleRequest(actionMap);
 };
 // [END YourAction]
