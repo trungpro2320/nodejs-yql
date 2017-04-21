@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "semistandard --fix \"**/*.js\"",
     "start": "functions deploy yourAction --trigger-http",
-    "deploy": "gcloud beta functions deploy yourAction --trigger-http --stage-bucket <storage_bucket_name>"
+    "deploy": "gcloud beta functions deploy yourAction --trigger-http --stage-bucket nodejs-yql"
   },
   "dependencies": {
     "actions-on-google": "^1.0.0"
